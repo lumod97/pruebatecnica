@@ -1,0 +1,34 @@
+name: Run Angular Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Configura el repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Configura Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # 3. Instala dependencias
+      - name: Install dependencies
+        run: npm install
+        working-directory: frontend
+
+      # 4. Ejecuta las pruebas
+      - name: Run tests
+        run: npm test -- --watch=false --no-progress
+        working-directory: frontend

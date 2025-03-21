@@ -1,0 +1,29 @@
+.articulos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Ajusta las columnas automáticamente
+    gap: 16px; // Espaciado entre las tarjetas
+    padding: 16px; // Padding alrededor del contenedor
+  }
+  
+  .articulo-card {
+    padding: 16px; // Padding interno de cada tarjeta
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // Sombra para un efecto más atractivo
+    border-radius: 8px; // Bordes redondeados
+  }
+
+  mat-dialog-content {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  mat-dialog-actions {
+    margin-top: 16px;
+  }
+
+  mat-typography{
+    padding: 50px;
+  }
+
+  .container{
+    padding: 50px;
+  }

@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Agregar nuevo artículo</h2>
+<mat-dialog-content>
+  <form [formGroup]="articuloForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="titulo" />
+      <mat-error *ngIf="articuloForm.get('titulo')?.hasError('required')">
+        El título es obligatorio.
+      </mat-error>
+      <mat-error *ngIf="articuloForm.get('titulo')?.hasError('maxlength')">
+        El título no puede exceder los 100 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Contenido</mat-label>
+      <textarea matInput formControlName="contenido" rows="5"></textarea>
+      <mat-error *ngIf="articuloForm.get('contenido')?.hasError('required')">
+        El contenido es obligatorio.
+      </mat-error>
+      <mat-error *ngIf="articuloForm.get('contenido')?.hasError('minlength')">
+        El contenido debe tener al menos 10 caracteres.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="guardar()" [disabled]="articuloForm.invalid">
+    Guardar
+  </button>
+</mat-dialog-actions>

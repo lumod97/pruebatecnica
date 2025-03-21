@@ -1,0 +1,12 @@
+<nav class="navbar" *ngIf="isLoggedIn">
+  <div class="navbar-brand">
+    <span>Sintad Articles</span>
+  </div>
+  <div class="navbar-links">
+    <span *ngIf="userName" class="user-name">Hola, {{ userName }}</span>
+    <button *ngIf="isArticulosRoute" (click)="agregarArticulo()">Agregar Artículo</button>
+    <button (click)="cerrarSesion()">Cerrar Sesión</button>
+  </div>
+</nav>
+<app-notification-bar #notificationBar></app-notification-bar>
+<router-outlet></router-outlet>

@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Lista de artículos</h2>
+    <div class="articulos-container">
+        <mat-card *ngFor="let articulo of articulos" class="articulo-card" (dblclick)="verDetalle(articulo)">
+            <mat-card-header>
+                <mat-card-title>{{ articulo.titulo }}</mat-card-title>
+                <mat-card-subtitle>Autor: {{ articulo.autor }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{ articulo.contenido }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="incrementarVistas(articulo)">
+                    <mat-icon>visibility</mat-icon> {{ articulo.views }}
+                </button>
+                <button mat-button (click)="verDetalle(articulo)">Leer más</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

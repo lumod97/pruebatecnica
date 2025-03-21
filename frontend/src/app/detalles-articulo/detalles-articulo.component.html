@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{ data.titulo }}</h2>
+<mat-dialog-content>
+  <p><strong>Autor:</strong> {{ data.autor }}</p>
+  <p>{{ data.contenido }}</p>
+
+  <!-- Contenedor scrollable para los comentarios -->
+  <div class="comentarios-scrollable">
+    <app-comentarios [articuloId]="data.id"></app-comentarios>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

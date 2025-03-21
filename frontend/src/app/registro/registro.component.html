@@ -1,0 +1,42 @@
+<div class="registro-container">
+  <h2>Registro</h2>
+  <form (ngSubmit)="registrarUsuario()" #registroForm="ngForm">
+    <!-- Nombre de Usuario -->
+    <div class="form-group">
+      <label for="nombreUsuario">Nombre de Usuario</label>
+      <input
+        type="text"
+        id="nombreUsuario"
+        [(ngModel)]="usuario.nombreUsuario"
+        name="nombreUsuario"
+        #nombreUsuario="ngModel"
+        required
+        placeholder="Ingresa tu nombre de usuario"
+      />
+      <div *ngIf="nombreUsuario.invalid && nombreUsuario.touched" class="error">
+        El nombre de usuario es obligatorio.
+      </div>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input
+        type="password"
+        id="contrasena"
+        [(ngModel)]="usuario.contrasena"
+        name="contrasena"
+        #contrasena="ngModel"
+        required
+        minlength="6"
+        placeholder="Ingresa tu contraseña"
+      />
+      <div *ngIf="contrasena.invalid && contrasena.touched" class="error">
+        La contraseña es obligatoria y debe tener al menos 6 caracteres.
+      </div>
+    </div>
+
+    <!-- Botón de Registro -->
+    <button type="submit" [disabled]="registroForm.invalid">Registrarse</button>
+  </form>
+</div>
